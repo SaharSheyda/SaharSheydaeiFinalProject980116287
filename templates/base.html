@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../static/css/navbar.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+      <!-- ? -->
+    <link rel="stylesheet" href="../static/css/swiper-bundle.min.css" />
+
+    <!-- link for css sign in sign up button -->
+    <link rel="stylesheet" href="../static/css/SignUpLogin.css">
+    <title>Base</title>
+</head>
+<body>
+    <nav>
+    <input type="checkbox" id="active">
+    <label for="active" class="menu-btn"><i class="fas fa-bars"></i></label>
+    <div class="wrapper">
+        <ul>
+           <li><a href="{% url 'home' %}">خانه</a></li>
+           <li><a href="{% url 'shop' %}">فروشگاه</a></li>
+           <li><a href="{% url 'about-us' %}">درباره ما</a></li>
+           <li><a href="{% url 'jobs' %}">همکاری با ما</a></li>
+           <li><a href="{% url 'contact-us' %}">تماس با ما</a></li>
+        </ul>
+     </div>
+    </nav>
+    
+    <!-- sign in sign up button -->
+    <div class="auth-container">
+      <div>
+        <a href="{% url 'signup' %}">
+          <button class="log">ثبت نام</button>
+        </a>
+        <a href="{% url 'login' %}">
+          <button class="reg">ورود</button>
+        </a>
+      </div>
+    </div>
+
+    <script src="{% static 'jquery.js' %}"></script>
+    
+    <!-- persian numbers -->
+    <script>
+      persian = { 0: '۰', 1: '۱', 2: '۲', 3: '۳', 4: '۴', 5: '۵', 6: '۶', 7: '۷', 8: '۸', 9: '۹' };
+      $(".persian-digit").each(function () {
+        for (var i = 0; i <= 9; i++) {
+          var re = new RegExp(i, "g");
+          $(this).html($(this).html().replace(re, persian[i]));
+        }
+      });
+    </script>
+</body>
+</html>
+{% block content %}
+{% endblock content %}
